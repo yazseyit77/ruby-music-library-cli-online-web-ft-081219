@@ -27,8 +27,8 @@ class Song
     @@all.uniq
   end
 
-  def self.create(name)
-    song = self.new(name)
+  def self.create(name, artist=nil, genre=nil)
+    song = self.new(name, artist, genre)
     song.name = name
     @@all << song
     song
@@ -41,4 +41,25 @@ class Song
   def self.destroy_all
     @@all.clear
   end
+
+  def self.find_by_name(name)
+    @@all.find { |song| song.name == name}
+  end
+
+  def self.find_or_create_by_name(name)
+    self.find_by_name(name) || self.create(name)
+  end
+
+  def self.new_from_filename(filename)
+    parts = filename.split(" - ")
+    song_name = parts[1]
+    artist = Artist.find_or_create_by_name(parts[0])
+    genre = Genre.find_or_create_by_name(parts[2].split('.')[0])
+    self.create(song_name, artist, genre)
+  end
+
+  def self.create_from_filename(filename)
+    self.new_from_filename(filename)
+  end
+
 end
