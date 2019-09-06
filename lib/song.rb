@@ -28,10 +28,16 @@ class Song
   end
 
   def self.create(name, artist=nil, genre=nil)
+<<<<<<< HEAD
     song = self.new(name, artist, genre)
     song.name = name
     @@all << song
     song
+=======
+    new_song = Song.new(song, artist, genre)
+    new_song.save
+    new_song
+>>>>>>> 5bcabcce6c622e2165e419d5590a348a9faffda4
   end
 
   def save
@@ -58,8 +64,11 @@ class Song
     self.create(song_name, artist, genre)
   end
 
+<<<<<<< HEAD
   def self.create_from_filename(filename)
     self.new_from_filename(filename)
   end
 
+=======
+>>>>>>> 5bcabcce6c622e2165e419d5590a348a9faffda4
 end
