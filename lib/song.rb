@@ -14,7 +14,7 @@ class Song
     if genre.songs.include?(self)
       genre.songs
     else
-      genre.songs << self #unless genre.songs.inlcude?(self)
+      genre.songs << self
     end
   end
 
@@ -61,5 +61,4 @@ class Song
   def self.create_from_filename(filename)
     self.new_from_filename(filename)
   end
-
 end
