@@ -50,6 +50,6 @@ class MusicLibraryController
     Song.all.each {|song| puts song.artist.name}
   end
 
-  
+
 
 end
