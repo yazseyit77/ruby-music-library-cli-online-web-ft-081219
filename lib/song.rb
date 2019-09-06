@@ -32,9 +32,6 @@ class Song
     song.name = name
     @@all << song
     song
-    # new_song = Song.new(song, artist, genre)
-    # new_song.save
-    # new_song
   end
 
   def save
